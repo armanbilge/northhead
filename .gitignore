@@ -96,3 +96,15 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
+
+# History files
+.Rhistory
+
+# Example code in package build process
+*-Ex.R
+
+# R data files from past sessions
+.Rdata
+
+*.R.swp
+
