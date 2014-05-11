@@ -26,7 +26,7 @@ f <- function(x) {
 
 zones <- read.csv("zones.csv")
 par(xpd = NA)
-for(i in 1:nrow(zones)) {
+for (i in 1:nrow(zones)) {
     name <- levels(zones$name)[zones$name[i]]
     max <- tail(df$horizontal, n = 1) 
     coord <- max - zones$coordinate[i] 
