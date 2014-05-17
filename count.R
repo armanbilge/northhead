@@ -24,6 +24,7 @@ pdf("count.pdf", 8, 5)
 barplot(count,
         names.arg = zone.names,
         ylim = c(0, 20),
+        las = 1,
         xlab = "Zone",
         ylab = "Total No. of Species")
 
