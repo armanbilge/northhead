@@ -25,8 +25,8 @@ for (z in zone) {
 for (i in 1:length(species.avg))
     species.avg[[i]] <- mean(species.avg[[i]])
 
-count.thresh <- 3
-percent.thresh <- 0.02
+count.thresh <- 4
+percent.thresh <- 0.01
 dominant.species <- c()
 for (i in 1:length(species.avg)) {
     x <- species.avg[[i]]
@@ -69,7 +69,7 @@ for (z in zone) {
             percent.names <- c(percent.names, species[i])
         }
     }
-    p <- par(mar = c(9, 4, 2, 4))
+    p <- par(mar = c(9, 5, 2, 4))
     count.means <- c(count.means, rep(0, length(percent.means)))
     count.stderr <- c(count.stderr, rep(0, length(percent.stderr)))
     percent.means <- c(rep(0, length(count.names)), percent.means)
