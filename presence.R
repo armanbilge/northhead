@@ -25,8 +25,8 @@ for (z in zone) {
 for (i in 1:length(species.avg))
     species.avg[[i]] <- mean(species.avg[[i]])
 
-count.thresh <- 8
-percent.thresh <- 0.1
+count.thresh <- 3
+percent.thresh <- 0.02
 dominant.species <- c()
 for (i in 1:length(species.avg)) {
     x <- species.avg[[i]]
@@ -39,7 +39,7 @@ for (i in 1:length(species.avg)) {
 dominant.species.names <- species[dominant.species]
 
 se <- function(x) sd(x)/sqrt(length(x))
-pdf("presence.pdf")
+pdf("presence.pdf", 7, 5)
 
 for (z in zone) {
     count.means <- c()
@@ -50,7 +50,7 @@ for (z in zone) {
     percent.names <- c()
     for (i in dominant.species) {
         if (i %in% z$species) {
-            j = match(i, z$species)
+            j <- match(i, z$species)
             m <- mean(unlist(z[j,3:8]))
             s <- se(unlist(z[j,3:8]))
             type <- z$type[j]
@@ -107,3 +107,27 @@ for (z in zone) {
     par(p)
 }
 
+pdf("species.pdf")
+
+for (i in dominant.species) {
+    count.means <- c()
+    count.stderrs <- c()
+    for (z in zone) {
+        if (i %in% z$species) {
+            j <- match(i, z$species)
+            m <- mean(unlist(z[j,3:8]))
+            s <- se(unlist(z[j,3:8]))
+        } else {
+            m <- 0
+            s <- 0
+        } 
+        count.means <- c(count.means, m)
+        count.stderrs <- c(count.stderrs, s)
+    }
+    bp <- barplot(count.means, names.arg = zone.names, main = species[i]) 
+    means <- count.means
+    stderrs <- count.stderrs
+    segments(bp, means - stderrs, bp, means + stderrs, lwd = 2)
+    segments(bp - 0.1, means - stderrs, bp + 0.1, means - stderrs, lwd = 2)
+    segments(bp - 0.1, means + stderrs, bp + 0.1, means + stderrs, lwd = 2)
+}
