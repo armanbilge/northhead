@@ -1,0 +1,144 @@
+% !TEX TS-program = pdflatex
+% !BIB TS-program = biber
+\documentclass[11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{setspace}
+\frenchspacing
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{sidecap}
+\usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{siunitx}
+\usepackage{hyperref}
+
+\usepackage[american]{babel}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\bibliography{references.bib}
+\newcommand{\aposcite}[2]{\citeauthor{#1}'s #2 (\citeyear{#1})}
+\usepackage{doi}
+
+\title{Species Diversity Gradients and Patterns of Intertidal Zonation at North Head Reserve}
+\author{Arman Bilge}
+\date{22 May 2014}
+
+\begin{document}
+	
+	\includepdf[pages={1}]{sheets.pdf}
+	\setcounter{page}{1}
+	
+	\maketitle
+	
+	\onehalfspacing
+	
+	\begin{abstract}
+		
+		Zonation is a biological phenomenon that is caused by both abiotic and biotic factors and is common in intertidal regions. We investigated the zonation of the intertidal zone at North Heads Historic Reserve, Auckland, New Zealand and tested the hypothesis that species diversity increases with proximity to the low tide mark. The study site was divided into five zones and species diversity and abundance in each zone was measured. The data supported the hypothesis that species diversity increases with proximity to the low tide mark. Furthermore, the abundance data highlighted a both abiotic and biotic factors that influence the diversity of a particular zone, particularly species--species interactions. Overall, this study corresponds well with other work along the Auckland shoreline and on the species diversity hypothesis. However, future work should focus in particular on observing and incorporating data about species--species interactions into theories for zonation and intertidal diversity.
+		
+	\end{abstract}
+	
+	\section*{Introduction}
+	
+	Zonation is a biological phenomenon in which a habitat becomes \enquote{banded} into a number of regions with a distinct organismic make-up. An organism's presence in a given zone is influenced by both physical factors (e.g., water or atmospheric exposure and substrate) \parencite{Morton:2004} as well as biological (e.g., competition and predation). Therefore, zonation is correlated with both the number of species present (i.e., the diversity) and the types of species present in a particular habitat. Such zonation often occurs in the intertidal zone due to the gradient of exposure to water and atmosphere for each elevation point in the intertidal  \parencite{Dellow:1950,Morton:2004}. Note that in the literature, the intertidal zone is also often referred to as the eulittoral zone \parencite{Dellow:1950,Morton:2004}.
+	
+	Zonation has been well-studied, particularly along the Auckland shoreline \parencite{Dellow:1950,Creese:1988,Morton:2004}. Furthermore, there is considerable evidence that species diversity increases with proximity to the low tide mark along a shoreline \parencite{Armonies:2000,McLachlan:2006}. Here, I present a study focusing on the North Heads Historic Reserve in Auckland, New Zealand. North Head represents an ideal location to investigate zonation due to the embayment of its shoreline. \textcite{Morton:2004} noted that such shores of medium energy (due to the decreased effect of waves) have biological zones that are well-aligned with the tides. In particular, I focus on elucidating the zones in the North Head intertidal region and their characteristics, as well as testing the hypothesis that species diversity increases with proximity to the low tide mark.
+	
+	\section*{Methods}
+	
+	I conducted field work with my collaborators at North Head on 3 May 2014. We established a transect across the selected study site, setting the low tide mark as the origin (such that all other distance measurements would be relative to the low tide). To record the shore profile, we took readings for every half-metre decrease in elevation, as well as for any sudden changes in elevation. We then identified and characterised the zones based on the presence of a dominant species; specifically, the first appearance of the deemed dominant species for a zone (while approaching the low tide mark) was taken to indicate the beginning of that zone. We randomly selected six quarter-metre quadrats in each zone for which species presence and abundance was recorded. However, care was taken to avoid quadrats containing tidal pools to avoid introducing bias to the data. In general, we counted motile species and estimated a percent cover for sessile species.
+	
+	Data were analysed and figures prepared using the R language \parencite{R}. I tested the hypothesis that species diversity increases with proximity to the low tide mark using \aposcite{Spearman:1904}{rank correlation coefficient}, and evaluated its significance using a $t$-test \parencite{Kendall:1973} for $p = 0.05$.
+	
+	\section*{Results}
+		
+		We identified five distinct zones at the study site that are described in detail below. The distance from the low tide mark to the beginning of the first zone was nearly 20 metres and the overall change in elevation was just over two metres, for an average gradient of approximately \SI{0.1}{m} vertical drop per metre towards the low tide mark. The profile of the shore is given in Figure~\ref{fig:elevation}.
+		
+	\begin{figure}
+		\includegraphics[width=\textwidth]{elevation.pdf}
+		\caption{Shore profile for the study site at North Head with zones indicated by dashed lines.}
+		\label{fig:elevation}
+	\end{figure}
+		
+	\begin{description}
+		
+		\item[Periwinkle] As the zone farthest out from the low tide mark, the periwinkle zone was dry and very sparse. The substrate was hard and encompassed several crevices.
+		
+		\item[Algae/Barnacle] The algae/barnacle zone was also dry and sparse, but was peppered with a number of tidal pools of various sizes. Here too, the substrate was hard and encompassed several crevices.
+		
+		\item[Gastropod] The Gastropod zone featured a number of species, but primarily gastropods. Its substrate was hard but not as dry as the previous two zones, and there were a number of tidal pools.
+		
+		\item[Oyster] The majority of the surface area in this zone was covered by \emph{Crassostrea~gigas}. The substrate was, in general, hard and moist.
+		
+		\item[Neptune's Necklace] This zone featured a sharp drop in elevation that left the majority of it in very close proximity to the ocean and thus very wet. Like the previous zone, nearly all of the surface area was covered, in this case by Neptune's necklace (\emph{Hormosira banksii}).
+		
+	\end{description}
+	
+		A total of 25 different species were sampled across the site. Of these species, 15 (60\%) appeared with an abundance of at least four per metre squared or one-percent cover, on average (across the entire site). The number of species per zone is presented in Figure~\ref{fig:count} and the per-zone abundance of the 15 aforementioned species is presented in Figure~\ref{fig:presence}a--e. Proximity to the low tide mark and species diversity had a positive correlation coefficient of $\rho = 0.9$ and a $t$-statistic of $t=10.9$, indicating that the relationship is significant for $p=0.05$.
+	
+	\begin{figure}
+		\includegraphics[width=\textwidth]{count.pdf}
+		\caption{Total number of species per zone of the study site.}
+		\label{fig:count}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\begin{subfigure}{\textwidth}
+			\centering
+			\includegraphics[page=1,width=0.8\textwidth]{presence.pdf}
+			\caption{Periwinkle}
+		\end{subfigure}
+		\begin{subfigure}{\textwidth}
+			\centering
+			\includegraphics[page=2,width=0.8\textwidth]{presence.pdf}
+			\caption{Algae/Barnacle}
+		\end{subfigure}
+		\caption{Per-species abundance for each zone of the 15 most-abundant species.}
+		\label{fig:presence}
+	\end{figure}
+
+	\begin{figure}
+	  \ContinuedFloat
+		\begin{subfigure}{\textwidth}
+			\centering
+			\includegraphics[page=3,width=0.8\textwidth]{presence.pdf}
+			\caption{Gastropod}
+		\end{subfigure}
+		\begin{subfigure}{\textwidth}
+			\centering
+			\includegraphics[page=4,width=0.8\textwidth]{presence.pdf}
+			\caption{Oyster}
+		\end{subfigure}
+		\caption{Continued.}
+	\end{figure}
+
+	\begin{figure}
+		\ContinuedFloat
+		\begin{subfigure}{\textwidth}
+			\centering
+			\includegraphics[page=5,width=0.8\textwidth]{presence.pdf}
+			\caption{Neptune's Necklace}
+		\end{subfigure}
+		\caption{Continued.}
+	\end{figure}
+	
+	\section*{Discussion}
+	
+	Overall, my observations at North Head are in line with those made at other Auckland shorelines \parencite{Dellow:1950,Morton:2004}. The intertidal at North Head has substantial resemblance to that at Long Bay, Auckland, as described by \textcite{Morton:2004}. For example, both feature a drop in elevation near the low tide mark, the product of erosion. Not surprisingly, the zones from these two shores also correspond quite well: \aposcite{Morton:2004}{upper eulittoral zone} corresponds with the periwinkle and barnacle/algae zones that I describe, his middle eulitorral zone corresponds with my Gastropod and oyster zones, and this lower eulittoral zone corresponds with my Neptune's necklace zone.
+	
+	My data show a significant positive correlation between species diversity and proximity to the low tide mark. There also appears to be a clear positive correlation between species abundance and proximity to the low tide mark; that is, there are more individuals per square metre as we approach the low tide. (However, we cannot easily do a statistical test for significance of this second correlation due to the discrepancy between count versus percent-cover data.) Together, both correlations suggest that water exposure is the primary limiting factor in this environment and that the overall carrying capacity diminishes with distance from the low tide mark. It is reasonable to expect that carrying capacity should be positively correlated with water exposure, granted that the tide brings oxygen and nutrients to shoreline organisms \parencite{Armonies:2000,McLachlan:2006}.
+	
+	Species differed in their patterns of presence, primarily based on their interactions with other species. Some were very concentrated in a particular zone, such as \emph{Austrolittorina}~sp., which was present only in the periwinkle zone but with about 30\% coverage. This suggests that \emph{Austrolittorina}~sp. is very specialised to its niche and is therefore unlikely to thrive in the other zones. The periwinkle zone may be the hardest zone to live in due to its little exposure to water thus requiring the greatest specialisation of its inhabitants. The small size of \emph{Austrolittorina}~sp. makes it well suited to minimising desiccation and surviving on the limited nutrients that are the challenges of this zone. Another example of a species concentrated in one zone was \emph{Lunella~smaragdus}, which was found predominantly in the Neptune's necklace zone, corresponding with observations by \textcite{Morton:2004}. \emph{L.~smaragdus} grazes on \emph{Corallina~officinalis}, which is also abundant in the Neptune's necklace zone \parencite{Morton:2004}.
+	
+	On the other hand, \emph{Haustrum~scobina}, a predatory species of snail, was present in all the zones, but had the greatest presence in the oyster zone. This observation may be explained by the fact that \emph{H.~scobina} is a generalist and thus will prey on a number of different species in any of the zones\parencite{Novak:2010}. Furthermore, however, \textcite{Novak:2010} demonstrated that \emph{H.~scobina} preys on \emph{Crassostrea}~sp. with higher frequency than its other prey. Therefore, it is unsurprising that the abundance of \emph{H.~scobina} corresponds with that of \emph{C.~columna} in the oyster zone. \emph{Diloma~bicanaliculata} was also present in all zones but the periwinkle zone, in line with \aposcite{Morton:2004}{observations}. \emph{D.~bicanaliculata} is a grazer that depends on prey that cannot survive in the periwinkle zone, explaining its own distribution \parencite{Creese:1988}.
+	
+	Ultimately, alongside several other studies \parencite[e.g., ][]{Armonies:2000,McLachlan:2006}, I have provided significant evidence for the species diversity gradient in the intertidal zone. However, there is still much to understand with regard to factors influencing this diversity gradient. Future studies focusing specifically on the species--species interactions using the methodology developed by \textcite{Novak:2010} or on the environmental stresses present alongside a theory for the influenced of stress on diversity \parencite{Scrosati:2011} may be particularly insightful.
+	
+	\printbibliography
+	
+	\includepdf[pages={2}]{sheets.pdf}
+	
+\end{document}

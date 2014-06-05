@@ -1,0 +1,54 @@
+13 barnacle 
+- present in all but farthest zone!
+- less present in gastropod zone, and less present in seaweed zone
+- potential predation?
+- must be very versatile to amounts of moisture
+
+18 starfish
+- only in seaweed zone, relies on water exposure
+- observation not significant
+
+21 chiton
+- only in oyster zone, maybe can't tolerate gastropods/starfish?
+
+26 catseye
+- everywhere, mostly neptune's necklace
+- least in algae/barnacle zone
+- observation not very significant in lesser zones
+- surprisingly little in gastropod zone
+
+32 limpet
+- only in oyster zone, not significant
+
+35 periwinkle
+- only in periwinkle zone
+
+36 leathery slug
+- insignificant observation in algae/barnacle zone
+
+38 spotted top snails
+- very present in algae/barnacle through oyster zone
+- insignificant presence in seaweed zone
+
+42 speckled whelk
+- insignificant appearance in seaweed zone
+
+45 oyster borer
+- present in all zones (b/c predatory?); insignificant in seaweed
+- most present in oyster zone, next best algae/barnacle/gastropod
+
+48 mussel
+- small but significant presence only seaweed zone
+
+49 oyster
+- substantial presence in oyster zone
+- smaller insignificant presence in neighboring zones
+
+58 neptune's necklace
+- substantial presence in its own zone
+
+73 corralina
+- very present in necklace zone
+
+74 red alga
+- good presence in algae zone, insig in oyster

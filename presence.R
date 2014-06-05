@@ -69,7 +69,7 @@ for (z in zone) {
             percent.names <- c(percent.names, species[i])
         }
     }
-    p <- par(mar = c(9, 5, 2, 4))
+    p <- par(mar = c(9, 5, 2, 5))
     count.means <- c(count.means, rep(0, length(percent.means)))
     count.stderr <- c(count.stderr, rep(0, length(percent.stderr)))
     percent.means <- c(rep(0, length(count.names)), percent.means)
@@ -124,7 +124,7 @@ for (i in dominant.species) {
         count.means <- c(count.means, m)
         count.stderrs <- c(count.stderrs, s)
     }
-    bp <- barplot(count.means, names.arg = zone.names, main = species[i]) 
+    bp <- barplot(count.means, names.arg = zone.names, main = i, ylab = z$type[j]) 
     means <- count.means
     stderrs <- count.stderrs
     segments(bp, means - stderrs, bp, means + stderrs, lwd = 2)
